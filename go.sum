@@ -1,4 +1,4 @@
-github.com/archnum/sdk.base v0.0.0-20241231151117-c38896c3ba11 h1:Pa/7yMilIgFwOcUXQQ7X/X/OrMIrBLfCPY91wJi4DwU=
-github.com/archnum/sdk.base v0.0.0-20241231151117-c38896c3ba11/go.mod h1:h5+FkrHpSTmuatLr4efkSIUh7hldsT+BNy7OHKo1ZNk=
+github.com/archnum/sdk.base v0.0.0-20241231164337-130dfadb10e6 h1:nYaKyp0Dml3B2hhEGdhscKzuXGp7BvnIKv1lJ9AXadg=
+github.com/archnum/sdk.base v0.0.0-20241231164337-130dfadb10e6/go.mod h1:h5+FkrHpSTmuatLr4efkSIUh7hldsT+BNy7OHKo1ZNk=
 github.com/ltrochet/loggers v0.0.0-20241231151942-2ebc76a90def h1:2gxgYIBTA5yuVqxtjfH+6EsSM4cUrZENZGihfLGEu4s=
 github.com/ltrochet/loggers v0.0.0-20241231151942-2ebc76a90def/go.mod h1:fTl6Vz5zddzJB45RYyTPQcCf2mDtpT8xDNaCG2AVeUI=
