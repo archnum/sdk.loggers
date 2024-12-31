@@ -22,30 +22,45 @@ type (
 	}
 
 	implLoggers struct {
-		all   map[string]manager.Logger
-		mutex sync.Mutex
+		ml map[string]manager.Logger
+		mu sync.Mutex
 	}
 )
 
 func newLoggers() *implLoggers {
 	return &implLoggers{
-		all: make(map[string]manager.Logger),
+		ml: make(map[string]manager.Logger),
 	}
 }
 
 func (impl *implLoggers) registerLogger(l manager.Logger) {
-	impl.mutex.Lock()
-	defer impl.mutex.Unlock()
+	impl.mu.Lock()
+	defer impl.mu.Unlock()
 
-	impl.all[string(l.ID())] = l
+	impl.ml[string(l.ID())] = l
 }
 
 func init() {
 	manager.RegisterCallback(_loggers.registerLogger)
 }
 
+func (impl *implLoggers) all() map[string]loggers.Logger {
+	impl.mu.Lock()
+	defer impl.mu.Unlock()
+
+	all := make(map[string]loggers.Logger, len(impl.ml))
+
+	for id, l := range impl.ml {
+		all[id] = &implLogger{
+			l: l,
+		}
+	}
+
+	return all
+}
+
 func All() map[string]loggers.Logger {
-	return nil
+	return _loggers.all()
 }
 
 /*
