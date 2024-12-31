@@ -6,8 +6,7 @@
 package loggers
 
 import (
-	"fmt"
-
+	"github.com/archnum/sdk.base/logger/level"
 	"github.com/archnum/sdk.base/logger/manager"
 )
 
@@ -30,13 +29,21 @@ func (impl *implLogger) Level() string {
 }
 
 func (impl *implLogger) DecLog() {
-	// TODO
-	fmt.Println("DEC", impl.l.ID())
+	lvl := impl.l.Level()
+	if lvl == level.Error {
+		return
+	}
+
+	impl.l.SetLevel(level.Level(lvl + 1))
 }
 
 func (impl *implLogger) IncLog() {
-	// TODO
-	fmt.Println("INC", impl.l.ID())
+	lvl := impl.l.Level()
+	if lvl == level.Trace {
+		return
+	}
+
+	impl.l.SetLevel(level.Level(lvl - 1))
 }
 
 /*
