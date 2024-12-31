@@ -28,7 +28,7 @@ func (impl *implLogger) Level() string {
 	return impl.l.Level().String()
 }
 
-func (impl *implLogger) DecLog() {
+func (impl *implLogger) LessLog() {
 	lvl := impl.l.Level()
 	if lvl == level.Error {
 		return
@@ -37,7 +37,7 @@ func (impl *implLogger) DecLog() {
 	impl.l.SetLevel(level.Level(lvl + 1))
 }
 
-func (impl *implLogger) IncLog() {
+func (impl *implLogger) MoreLog() {
 	lvl := impl.l.Level()
 	if lvl == level.Trace {
 		return
