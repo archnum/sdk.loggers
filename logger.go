@@ -17,6 +17,10 @@ type (
 	}
 )
 
+func (impl *implLogger) ID() string {
+	return string(impl.l.ID())
+}
+
 func (impl *implLogger) Name() string {
 	return impl.l.Name()
 }
