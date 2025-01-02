@@ -37,7 +37,7 @@ func (impl *implLoggers) registerLogger(l manager.Logger) {
 	impl.mu.Lock()
 	defer impl.mu.Unlock()
 
-	impl.ml[string(l.ID())] = l
+	impl.ml[l.ID().String()] = l
 }
 
 func init() {

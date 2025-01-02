@@ -17,7 +17,7 @@ type (
 )
 
 func (impl *implLogger) ID() string {
-	return string(impl.l.ID())
+	return impl.l.ID().String()
 }
 
 func (impl *implLogger) Name() string {
